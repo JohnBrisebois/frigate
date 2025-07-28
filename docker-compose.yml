@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  frigate:
+    container_name: frigate
+    image: ghcr.io/blakeblackshear/frigate:stable
+    privileged: true
+    restart: unless-stopped
+    shm_size: "64mb"
+    ports:
+      - "8971:8971"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./config:/config
+      - /media/frigate:/media/frigate
+    environment:
+      - FRIGATE_RTSP_PASSWORD=supersecret
