@@ -4,6 +4,8 @@ services:
     image: ghcr.io/blakeblackshear/frigate:stable
     env_file:
       - .env
+    environment:
+      REOLINK_PASSWORD: ${REOLINK_PASSWORD}
     privileged: true
     restart: unless-stopped
     shm_size: "64mb"
