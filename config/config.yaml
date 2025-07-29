@@ -1,23 +1,19 @@
 mqtt:
   enabled: false
 
-go2rtc:
-  streams:
-    your_reolink_doorbell:
-      - "ffmpeg:http://192.168.50.215/flv?port=1935&app=bcs&stream=channel0_main.bcs&user=admin&password=gooddeal1#video=copy#audio=copy#audio=opus"
-      - rtsp://192.168.50.215:554/Preview_01_sub
-
 cameras:
-  name_of_your_camera: # <------ Name the camera
-    enabled: true
+  doorbell:
     ffmpeg:
       inputs:
-        - path: rtsp://127.0.0.1:8554/your_reolink_doorbell
-          input_args: preset-rtsp-restream
+        - path: rtsp://admin:gooddeal1@192.168.50.215:554/Preview_01_main
           roles:
             - record
+        - path: rtsp://admin:gooddeal1@192.168.50.215:554/Preview_01_sub
+          roles:
+            - detect
     detect:
-      enabled: false # <---- disable detection until you have a working camera feed
+      enabled: false
       width: 1280
       height: 720
+
 version: 0.15-1
