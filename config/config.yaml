@@ -5,10 +5,10 @@ cameras:
   doorbell:
     ffmpeg:
       inputs:
-        - path: rtsp://admin:{REOLINK_PASSWORD}@192.168.50.215:554/Preview_01_main
+        - path: rtsp://admin:${REOLINK_PASSWORD}@192.168.50.215:554/Preview_01_main
           roles:
             - record
-        - path: rtsp://admin:{REOLINK_PASSWORD}@192.168.50.215:554/Preview_01_sub
+        - path: rtsp://admin:${REOLINK_PASSWORD}@192.168.50.215:554/Preview_01_sub
           roles:
             - detect
     detect:

@@ -2,9 +2,8 @@ services:
   frigate:
     container_name: frigate
     image: ghcr.io/blakeblackshear/frigate:stable
-    env_file:
-      - .env
     environment:
+      FRIGATE_RTSP_PASSWORD: "supersecret"
       REOLINK_PASSWORD: ${REOLINK_PASSWORD}
     privileged: true
     restart: unless-stopped
