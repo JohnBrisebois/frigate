@@ -4,7 +4,7 @@ mqtt:
 go2rtc:
   streams:
     your_reolink_doorbell:
-      - "ffmpeg:http://192.168.50.215/flv?port=1935&app=bcs&stream=channel0_main.bcs&user=admin&password=gooddeal#1#video=copy#audio=copy#audio=opus"
+      - "ffmpeg:http://192.168.50.215/flv?port=1935&app=bcs&stream=channel0_main.bcs&user=admin&password=gooddeal1#video=copy#audio=copy#audio=opus"
       - rtsp://192.168.50.215:554/Preview_01_sub
 
 cameras:
