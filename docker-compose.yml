@@ -8,6 +8,9 @@ services:
     shm_size: "64mb"
     ports:
       - "8971:8971"
+      - "8554:8554"       # RTSP restreams
+      - "8555:8555/tcp"   # WebRTC over TCP
+      - "8555:8555/udp"   # WebRTC over UDP
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ./config:/config
