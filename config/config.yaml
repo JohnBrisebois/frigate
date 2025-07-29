@@ -12,7 +12,7 @@ cameras:
     enabled: true
     ffmpeg:
       inputs:
-        - path: rtsp://127.0.0.1:8554/your_reolink_camera
+        - path: rtsp://127.0.0.1:8554/your_reolink_doorbell
           input_args: preset-rtsp-restream
           roles:
             - record
