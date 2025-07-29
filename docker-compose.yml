@@ -18,6 +18,3 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - ./config:/config
       - /media/frigate:/media/frigate
-    environment:
-      - FRIGATE_RTSP_PASSWORD=supersecret
-      - REOLINK_PASSWORD=${REOLINK_PASSWORD}
