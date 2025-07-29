@@ -1,4 +1,5 @@
 version: "3.9"
+${{ secrets.REOLINK_PASSWORD }}
 services:
   frigate:
     container_name: frigate
