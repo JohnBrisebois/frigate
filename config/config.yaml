@@ -24,3 +24,11 @@ cameras:
         - path: rtsp://127.0.0.1:8554/doorbell_sub
           roles:
             - detect
+    detect:
+      enabled: false
+    record:
+      enabled: true
+      retain:
+        days: 1
+        mode: all
+
