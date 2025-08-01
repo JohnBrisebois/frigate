@@ -3,16 +3,18 @@ mqtt:
 
 go2rtc:
   streams:
-    doorbell:
+    doorbell_main:
       - "rtsp://admin:{REOLINK_PASSWORD}@192.168.50.215:554/h264Preview_01_main"
+    doorbell_sub:
+      - "rtsp://admin:{REOLINK_PASSWORD}@192.168.50.215:554/h264Preview_01_sub"
 
 cameras:
   doorbell:
     ffmpeg:
       inputs:
-        - path: rtsp://127.0.0.1:8554/doorbell
+        - path: rtsp://127.0.0.1:8554/doorbell_main
           roles:
             - record
-        - path: rtsp://127.0.0.1:8554/doorbell
+        - path: rtsp://127.0.0.1:8554/doorbell_sub
           roles:
             - detect
