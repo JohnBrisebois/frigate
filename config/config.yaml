@@ -1,3 +1,6 @@
+mqtt:
+  enabled: false
+
 go2rtc:
   streams:
     doorbell:
