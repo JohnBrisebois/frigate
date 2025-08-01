@@ -1,6 +1,10 @@
 mqtt:
   enabled: false
 
+  
+ui:
+  live_mode: record
+
 go2rtc:
   streams:
     doorbell_main:
@@ -18,6 +22,3 @@ cameras:
         - path: rtsp://127.0.0.1:8554/doorbell_sub
           roles:
             - detect
-
-ui:
-  live_mode: record
