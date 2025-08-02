@@ -7,6 +7,10 @@ services:
     privileged: true
     restart: unless-stopped
     shm_size: "64mb"
+    networks:
+      - webnet
+    expose:
+      - "8971"
     ports:
       - "8971:8971"
       - "8554:8554"       # RTSP restreams
@@ -16,3 +20,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - ./config:/config
       - /media/frigate:/media/frigate
+
+networks:
+  webnet:
+    external: true

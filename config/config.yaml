@@ -31,4 +31,5 @@ cameras:
       retain:
         days: 1
         mode: all
-
+    motion:
+      mask: 0.308,0.012,0.31,0.061,0.659,0.071,0.665,0.015
