@@ -3,7 +3,7 @@ services:
     container_name: frigate
     image: ghcr.io/blakeblackshear/frigate:stable
     environment:
-      FRIGATE_RTSP_PASSWORD: "supersecret"
+      FRIGATE_RTSP_PASSWORD: ""
     privileged: true
     restart: unless-stopped
     shm_size: "64mb"

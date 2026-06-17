@@ -1,18 +1,64 @@
+tls:
+  enabled: false
 
 mqtt:
   enabled: false
 
+ui: {}
+go2rtc:
+  streams:
+    doorbell_main:
+      - ffmpeg:rtsp://admin:gamersriseup123@192.168.50.215:554/h264Preview_01_main
+    doorbell_sub:
+      - ffmpeg:rtsp://admin:gamersriseup123@192.168.50.215:554/h264Preview_01_sub
+    amcrest_main:
+      - ffmpeg:rtsp://admin:gamersriseup%231@192.168.50.117:554/cam/realmonitor?channel=1&subtype=0
+    amcrest_sub:
+      - ffmpeg:rtsp://admin:gamersriseup%231@192.168.50.117:554/cam/realmonitor?channel=1&subtype=1
+
 cameras:
   doorbell:
+    live:
+      streams:
+        Main: doorbell_main
     ffmpeg:
       inputs:
-        - path: rtsp://admin:{REOLINK_PASSWORD}@192.168.50.215:554/h264Preview_01_main
+        - path: rtsp://127.0.0.1:8554/doorbell_main
           roles:
             - record
-        - path: rtsp://admin:{REOLINK_PASSWORD}@192.168.50.215:554/h264Preview_01_sub
+        - path: rtsp://127.0.0.1:8554/doorbell_sub
           roles:
             - detect
     detect:
       enabled: false
+    record:
+      enabled: true
+      continuous:
+        days: 1
+    motion:
+      mask: 0.308,0.012,0.31,0.061,0.659,0.071,0.665,0.015
+  
+  driveway:
+    live:
+      streams:
+        Main: amcrest_main
 
-version: 0.15-1
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/amcrest_main
+          roles:
+            - record
+
+        - path: rtsp://127.0.0.1:8554/amcrest_sub
+          roles:
+            - detect
+
+    detect:
+      enabled: true
+
+    record:
+      enabled: true
+      continuous:
+        days: 1
+
+version: 0.17-1
